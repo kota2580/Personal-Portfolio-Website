@@ -1,0 +1,222 @@
+/* ===== Base ===== */
+:root{
+  --bg:#0b1220;
+  --bg-alt:#0f1a2b;
+  --text:#e6ecff;
+  --muted:#b8c1d9;
+  --accent:#5eead4;
+  --card:#121b2e;
+  --border:rgba(255,255,255,0.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, #0a1629 100%);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+body.no-scroll{ overflow:hidden; }
+
+/* ===== Layout ===== */
+.container{width:min(1100px, 92vw); margin-inline:auto}
+.section{padding:80px 0}
+.section.alt{background:var(--bg-alt)}
+.grid-2{display:grid; grid-template-columns:1.2fr 1fr; gap:32px}
+@media (max-width:900px){ .grid-2{grid-template-columns:1fr;} .hero-inner{grid-template-columns:1fr; gap:25px} }
+
+/* ===== Nav ===== */
+.nav{
+  position:sticky; top:0; z-index:100;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:rgba(10, 14, 28, 0.6);
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 4vw;
+}
+.brand{color:var(--text); text-decoration:none; font-weight:700; font-size:1.8rem}
+.brand span{color:var(--accent)}
+.nav-list{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+.nav-list a{color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px}
+.nav-list a:hover{background:var(--border); color:var(--text)}
+.nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:1.5rem}
+@media (max-width:760px){
+  .nav-toggle{display:block}
+  .nav-list{position:absolute; right:16px; top:56px; flex-direction:column; background:var(--card); padding:10px; border:1px solid var(--border); border-radius:12px; display:none}
+  .nav-list.open{display:flex}
+}
+
+/* ===== Hero ===== */
+.hero{min-height:88vh; display:grid; place-items:center; position:relative}
+.hero-inner{display:grid; grid-template-columns:1.2fr 1fr; align-items:center; gap:40px}
+.eyebrow{letter-spacing:.18em; color:var(--muted); text-transform:uppercase; font-size:.75rem}
+.hero h1{font-size:clamp(2rem,4vw,3rem); margin:.2rem 0}
+.accent{color:var(--accent)}
+.tagline{color:var(--muted); max-width:48ch}
+.cta{display:flex; gap:150px; margin-top:20px; flex-wrap:wrap}
+
+.btn{display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; border:1px solid var(--border); color:var(--text); font-weight:600; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;}
+.btn.primary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn.primary:hover {
+  background: var(--accent);
+  color: #071017;
+  border-color: transparent;
+}
+.btn.ghost{background:transparent}
+.btn.ghost:hover {
+  background: var(--accent);
+  color: #071017;
+  border-color: transparent;
+}
+.btn.abt_me{
+  background:transparent;
+  color:rgb(119, 119, 251);
+  border:none;
+  padding:0;
+}
+.btn.abt_me:hover{ background:none; color: var(--accent); border-color: none; }
+.btn.small{padding:8px 12px; font-size:.95rem}
+.inline-cta{display:flex; gap:10px; margin-top:10px}
+
+.hero-art img{width:100%; max-width:320px; border-radius:25px; border:3px solid var(--accent)}
+
+.scroll-down{position:absolute; bottom:16px; left:50%; transform:translateX(-50%); text-decoration:none; color:var(--muted); font-size:1.5rem}
+
+/* ===== About ===== */
+.lead, .about_me p { font-size: 1.05rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; }
+.about_me{width:min(1100px, 92vw); margin-inline:auto}
+.bullets{padding-left:20px; margin:1.5rem 0}
+.bullets li{margin:6px 0}
+
+/* ===== Skills ===== */
+.skills-grid{display:grid; grid-template-columns:repeat(5, 1fr); gap:16px}
+.skill-card{background:var(--card); border:1px solid var(--border); padding:16px; border-radius:12px}
+.skill-card h3{margin-top:0; font-size:1rem}
+.skill-card ul{padding-left:18px}
+@media (max-width:1000px){ .skills-grid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:640px){ .skills-grid{grid-template-columns:repeat(2,1fr)} }
+
+/* ===== Projects ===== */
+.project-card{display:grid; grid-template-columns:1fr 1.4fr; gap:20px; border:1px solid var(--border); background:var(--card); border-radius:14px; padding:14px; margin:16px 0}
+.project-media img{width:100%; border-radius:10px; border:1px solid var(--border)}
+.project-body h3{margin:6px 0}
+.meta{color:var(--muted); font-size:.95rem}
+.highlights{padding-left:18px}
+.links{display:flex; gap:10px; margin-top:10px}
+@media (max-width:900px){ .project-card{grid-template-columns:1fr} }
+
+/* === Hover overlay on project image === */
+.hoverable{ position:relative; }
+.hoverable img{ display:block; width:100%; border-radius:10px; transition:opacity .28s ease }
+.hoverable:hover img{ opacity:.28; }
+.overlay-btn{
+  position:absolute; inset:auto 50% 50% auto; transform:translate(50%, 50%);
+  padding:10px 16px; border-radius:10px; border:1px solid var(--accent);
+  background:transparent; color:var(--accent); font-weight:700; cursor:pointer;
+  opacity:0; transition:opacity .2s ease, background .2s ease, color .2s ease;
+}
+.hoverable:hover .overlay-btn{ opacity:1; }
+.overlay-btn:hover{ background:var(--accent); color:#071017; }
+
+/* ===== Modal Gallery ===== */
+.modal{
+  position:fixed; inset:0; display:none;
+  align-items:center; justify-content:center; padding:40px 18px;
+  background:rgba(7,16,23,0.88); z-index:2000;
+}
+.modal.open{ display:flex; }
+.modal-panel{
+  width:min(900px, 92vw); background:var(--card); color:var(--text);
+  border:1px solid var(--border); border-radius:14px; padding:18px 18px 22px;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.modal-close{
+  background:transparent; border:none; color:var(--text);
+  font-size:34px; line-height:1; cursor:pointer; float:right;
+}
+.modal-lead{ color:var(--muted); margin-top:0 }
+.gallery{ display:grid; gap:16px; margin-top:10px }
+.gallery figure{ margin:0; background:#0b1323; border:1px solid var(--border); border-radius:12px; overflow:hidden }
+.gallery img{ display:block; width:100% }
+.gallery figcaption{ font-size:.95rem; color:var(--muted); padding:10px 12px }
+
+/* ===== Achievements ===== */
+.achievements{display:grid; gap:10px; padding-left:18px}
+
+/* ===== Education ===== */
+.timeline{position:relative; padding-left:22px}
+.timeline:before{content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:var(--border)}
+.tl-item{position:relative; margin:14px 0}
+.tl-dot{position:absolute; left:4px; top:6px; width:12px; height:12px; background:var(--accent); border-radius:50%}
+.tl-content{background:var(--card); border:1px solid var(--border); padding:12px; border-radius:10px}
+.tl-content .meta{color:var(--muted)}
+
+/* ===== Contact ===== */
+.contact-list{list-style:none; padding:0; margin:0}
+.contact-form{display:grid; gap:10px}
+.contact-form label{display:grid; gap:6px; font-size:.95rem}
+.contact-form input,.contact-form textarea{background:#0b1323; border:1px solid var(--border); border-radius:10px; padding:10px; color:var(--text)}
+.contact-form button{justify-self:start}
+
+/* ===== Footer ===== */
+.footer{border-top:1px solid var(--border); padding:18px 0; background:rgba(0,0,0,0.2)}
+.footer-inner{display:flex; justify-content:space-between; align-items:center}
+.back-to-top{color:var(--muted); text-decoration:none}
+
+/* ===== Reveal Animations ===== */
+.reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
+.reveal.visible{opacity:1; transform:none}
+
+/* ===== Social Icons ===== */
+.socials { display:flex; gap:20px; margin-top:50px; }
+.socials a {display:inline-block;}
+.social-icon { width:32px; height:32px; transition: transform .2s ease, opacity .2s ease; }
+.social-icon:hover { transform:scale(1.1); opacity:.85; }
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important; transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* Make modal scrollable if content is tall */
+.modal-panel {
+  max-height: 80vh;      /* Prevents modal from growing beyond screen */
+  overflow-y: auto;      /* Enables scrolling */
+  position: relative;    /* For sticky positioning */
+  padding-top: 3.5rem;   /* Add space so content doesn’t overlap close button */
+}
+
+/* Sticky close button */
+.modal-close {
+  position: sticky;
+  top: 0;
+  float: none;           /* Disable float so sticky works */
+  margin-left: auto;     /* Push it to the right */
+  display: block;
+  background: var(--card);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  line-height: 1;
+  z-index: 10;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;  /* stack items vertically */
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  text-align: center;
+}
+
