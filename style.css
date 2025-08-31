@@ -30,50 +30,155 @@ body.no-scroll{ overflow:hidden; }
 @media (max-width:900px){ .grid-2{grid-template-columns:1fr;} .hero-inner{grid-template-columns:1fr; gap:25px} }
 
 /* ===== Nav ===== */
-.nav{
-  position:sticky; top:0; z-index:100;
+.nav
+{
+  position:sticky; 
+  top:0;
+  z-index:100;
   backdrop-filter:saturate(140%) blur(10px);
   background:rgba(10, 14, 28, 0.6);
   border-bottom:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between;
   padding:12px 4vw;
 }
-.brand{color:var(--text); text-decoration:none; font-weight:700; font-size:1.8rem}
-.brand span{color:var(--accent)}
-.nav-list{display:flex; gap:18px; list-style:none; margin:0; padding:0}
-.nav-list a{color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px}
-.nav-list a:hover{background:var(--border); color:var(--text)}
-.nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:1.5rem}
-@media (max-width:760px){
-  .nav-toggle{display:block}
-  .nav-list{position:absolute; right:16px; top:56px; flex-direction:column; background:var(--card); padding:10px; border:1px solid var(--border); border-radius:12px; display:none}
-  .nav-list.open{display:flex}
+.brand
+{
+  color:var(--text); 
+  text-decoration:none; 
+  font-weight:700; 
+  font-size:1.8rem
+}
+.brand span
+{
+  color:var(--accent)
+}
+.nav-list
+{
+  display:flex; 
+  gap:18px; 
+  list-style:none; 
+  margin:0; 
+  padding:0
+}
+.nav-list a
+{
+  color:var(--muted); 
+  text-decoration:none; 
+  padding:8px 10px; 
+  border-radius:8px
+}
+.nav-list a:hover
+{
+  background:var(--border); 
+  color:var(--text)
+}
+.nav-toggle
+{
+  display:none; 
+  background:none; 
+  border:none; 
+  color:var(--text); 
+  font-size:1.5rem
+}
+@media (max-width:760px)
+{
+  .nav-toggle
+  {
+    display:block
+  }
+  .nav-list
+  {
+    position:absolute; 
+    right:16px; 
+    top:56px; 
+    flex-direction:column; 
+    background:var(--card); 
+    padding:10px; 
+    border:1px solid var(--border); 
+    border-radius:12px; 
+    display:none
+  }
+  .nav-list.open
+  {
+    display:flex
+  }
 }
 
 /* ===== Hero ===== */
-.hero{min-height:88vh; display:grid; place-items:center; position:relative}
-.hero-inner{display:grid; grid-template-columns:1.2fr 1fr; align-items:center; gap:40px}
-.eyebrow{letter-spacing:.18em; color:var(--muted); text-transform:uppercase; font-size:.75rem}
-.hero h1{font-size:clamp(2rem,4vw,3rem); margin:.2rem 0}
-.accent{color:var(--accent)}
-.tagline{color:var(--muted); max-width:48ch}
-.cta{display:flex; gap:150px; margin-top:20px; flex-wrap:wrap}
+.hero
+{
+  min-height:88vh; 
+  display:grid; 
+  place-items:center; 
+  position:relative
+}
+.hero-inner
+{
+  display:grid; 
+  grid-template-columns:1.2fr 1fr; 
+  align-items:center; 
+  gap:40px
+}
+.eyebrow
+{
+  letter-spacing:.18em; 
+  color:var(--muted); 
+  text-transform:uppercase; 
+  font-size:.75rem
+}
+.hero h1
+{
+  font-size:clamp(2rem,4vw,3rem); 
+  margin:.2rem 0
+}
+.accent
+{
+  color:var(--accent)
+}
+.tagline
+{
+  color:var(--muted); 
+  max-width:48ch
+}
+.cta
+{
+  display:flex; 
+  gap:150px; 
+  margin-top:20px; 
+  flex-wrap:wrap
+}
 
-.btn{display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; border:1px solid var(--border); color:var(--text); font-weight:600; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;}
-.btn.primary {
+.btn
+{
+  display:inline-block; 
+  padding:10px 16px; 
+  border-radius:10px; 
+  text-decoration:none; 
+  border:1px solid var(--border); 
+  color:var(--text); 
+  font-weight:600; 
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.btn.primary 
+{
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
 }
-.btn.primary:hover {
+.btn.primary:hover 
+{
   background: var(--accent);
   color: #071017;
   border-color: transparent;
 }
-.btn.ghost{background: transparent;
+.btn.ghost
+{
+  background: transparent;
   color: var(--accent);
-  border: 1px solid var(--accent);}
-.btn.ghost:hover {
+  border: 1px solid var(--accent);
+}
+.btn.ghost:hover 
+{
   background: var(--accent);
   color: #071017;
   border-color: transparent;
@@ -84,7 +189,12 @@ body.no-scroll{ overflow:hidden; }
   border:none;
   padding:0;
 }
-.btn.abt_me:hover{ background:none; color: var(--accent); border-color: none; }
+.btn.abt_me:hover
+{
+   background:none; 
+   color: var(--accent); 
+   border-color: none; 
+}
 .btn.small{padding:8px 12px; font-size:.95rem}
 .btn.small:hover{
   background: var(--accent);
@@ -93,9 +203,24 @@ body.no-scroll{ overflow:hidden; }
 }
 .inline-cta{display:flex; gap:10px; margin-top:10px}
 
-.hero-art img{width:100%; max-width:320px; border-radius:25px; border:3px solid var(--accent)}
+.hero-art img
+{
+  width:100%; 
+  max-width:320px; 
+  border-radius:200px; 
+  box-shadow: 0 0 25px var(--accent);
+}
 
-.scroll-down{position:absolute; bottom:16px; left:50%; transform:translateX(-50%); text-decoration:none; color:var(--muted); font-size:1.5rem}
+.scroll-down
+{
+  position:absolute; 
+  bottom:16px; 
+  left:50%; 
+  transform:translateX(-50%); 
+  text-decoration:none; 
+  color:var(--muted); 
+  font-size:1.5rem
+}
 
 /* ===== About ===== */
 .lead, .about_me p { font-size: 1.05rem; color: var(--text); line-height: 1.7; margin-bottom: 1rem; }
@@ -237,4 +362,29 @@ body.no-scroll{ overflow:hidden; }
 .cont:focus{
   outline:none;
   border:2px var(--accent) solid;
+}
+
+/* Style the entire scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* For vertical scrollbar */
+  height: 10px; /* For horizontal scrollbar */
+  transition: width 0.25s ease;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: var(--bg-alt); /* Use a dark background color */
+  border-radius: 0px;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent); /* Use your accent color for the thumb */
+  border-radius: 10px;
+  border: 2px solid var(--bg-alt); /* Add a border for separation */
+}
+
+/* Add hover effect to the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5bdbbd; /* A slightly darker shade of your accent color */
 }
